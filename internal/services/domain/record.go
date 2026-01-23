@@ -98,7 +98,7 @@ func recordSchema() map[string]*schema.Schema {
 			Type:        schema.TypeString,
 			Description: "The data of the record",
 			Required:    true,
-			// NOTE: For CNAME/NS/MX records, the Scaleway API normalizes the "data" field to an absolute FQDN with a trailing dot. Example:
+			// NOTE: For CNAME/NS/MX/SRV records, the Scaleway API normalizes the "data" field to an absolute FQDN with a trailing dot. Example:
 			//
 			//   config: data = "www"
 			//   API/state: data = "www.scaleway-terraform.com."

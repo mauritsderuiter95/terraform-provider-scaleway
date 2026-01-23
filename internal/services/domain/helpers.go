@@ -671,7 +671,7 @@ func NormalizeRecordData(data string, recordType domain.RecordType, dnsZone stri
 	}
 
 	switch recordType {
-	case domain.RecordTypeCNAME, domain.RecordTypeNS, domain.RecordTypeMX:
+	case domain.RecordTypeCNAME, domain.RecordTypeNS, domain.RecordTypeMX, domain.RecordTypeSRV:
 		return NormalizeTargetFQDN(data, dnsZone)
 	default:
 		return data

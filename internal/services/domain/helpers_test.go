@@ -337,6 +337,18 @@ func TestNormalizeRecordData(t *testing.T) {
 			recordType: domainSDK.RecordTypeCNAME,
 			expected:   "",
 		},
+		{
+			name:       "SRV stays untouched",
+			data:       "100 100 8067 server1.srv.example.com.",
+			recordType: domainSDK.RecordTypeSRV,
+			expected:   "100 100 8067 server1.srv.example.com.",
+		},
+		{
+			name:       "SRV relative expands",
+			data:       "100 100 8067 server1",
+			recordType: domainSDK.RecordTypeSRV,
+			expected:   "100 100 8067 server1.scaleway-terraform.com.",
+		},
 	}
 
 	for _, tt := range tests {
